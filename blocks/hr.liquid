@@ -1,0 +1,77 @@
+{% style %}
+  #shopify-block-{{ block.id }} hr {
+    border-style: {{ block.settings.border_style }};
+    border-width: 0 0 {{ block.settings.height }}px 0;
+    width: {{ block.settings.width }}%;
+    margin-top: {{ block.settings.margin_top }}px;
+    margin-bottom: {{ block.settings.margin_bottom }}px;
+  }
+  @media (max-width: 750px) { /* Mobile */
+    #shopify-block-{{ block.id }} hr {
+      margin-top: calc({{ block.settings.margin_top }}px / 2);
+      margin-bottom: calc({{ block.settings.margin_bottom }}px / 2);
+    }
+  }
+{% endstyle %}
+
+<hr>
+
+{% schema %}
+{
+  "name": "Divider",
+  "settings": [
+    {
+      "type": "select",
+      "id": "border_style",
+      "label": "Style",
+      "options": [
+        { "value": "solid", "label": "solid" },
+        { "value": "dotted", "label": "dotted" },
+        { "value": "dashed", "label": "dashed" }
+      ],
+      "default": "solid"
+    },
+    {
+      "type": "range",
+      "id": "height",
+      "label": "Height",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 1,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "width",
+      "label": "Width",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 100,
+      "unit": "%"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "label": "Margin top",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "default": 0,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "label": "Margin bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "default": 0,
+      "unit": "px"
+    }
+  ],
+  "presets": [{ "name": "Divider" }]
+}
+{% endschema %}

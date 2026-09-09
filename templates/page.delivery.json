@@ -1,0 +1,381 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "hero_banner_bWdtKe": {
+      "type": "hero-banner",
+      "name": "Hero Banner",
+      "settings": {
+        "layout": "full",
+        "height": "large",
+        "content_alignment": "left",
+        "vertical_alignment": "bottom",
+        "image": "shopify://shop_images/pexels-rdne-7309213.avif",
+        "enable_video_looping": false,
+        "overlay_color": "#000000",
+        "overlay_opacity": 40,
+        "section-color_scheme": "",
+        "subheading": "",
+        "heading": "<p><em>Delivery</em> & <em>Shipping</em> Information</p>",
+        "heading_tag": "h1",
+        "body": "<p>We safely pack each mug in extra-cushioned, eco-friendly packaging to ensure it arrives at your doorstep in perfect condition.</p>",
+        "countdown_date": "",
+        "button_label": "",
+        "button_link": "/collections/all",
+        "button_style": "primary",
+        "button_label_2": "",
+        "button_link_2": "",
+        "button_style_2": "outline"
+      }
+    },
+    "multicolumn_yYnzw8": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_UwpfEr": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>Order Processing</strong>",
+            "text": "<p>All orders are packed and shipped within <strong>1–3 business days</strong>.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_QXF7nH": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>Domestic Shipping</strong>",
+            "text": "<p>Arrives in <strong>3–5 business days</strong> after processing.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_yDXRAa": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>International Shipping</strong>",
+            "text": "<p>Arrives in <strong>7–21 business days</strong> depending on customs processing in your country.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_UwpfEr",
+        "column_QXF7nH",
+        "column_yDXRAa"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "<strong>Processing & Shipping Times</strong>",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "custom_flexbox_T6FNBq": {
+      "type": "custom-flexbox",
+      "blocks": {
+        "wrapper_r9Y3ni": {
+          "type": "wrapper",
+          "name": "Section Flexbox",
+          "settings": {
+            "gap": 0,
+            "flex_direction": "row",
+            "align_items": "stretch",
+            "flex_direction_mobile": "column"
+          },
+          "blocks": {
+            "container_3KPw6w": {
+              "type": "container",
+              "name": "Container",
+              "settings": {
+                "width": 100,
+                "background_color": "",
+                "border_radius": 0,
+                "gap": 20,
+                "padding_vertical": 30,
+                "padding_horizontal": 0,
+                "flex_direction": "column",
+                "css_id": "",
+                "css_class": ""
+              },
+              "blocks": {
+                "image_PTJPmt": {
+                  "type": "image",
+                  "name": "Image",
+                  "settings": {
+                    "image": "shopify://shop_images/signing-shipping-forms-for-large-box.avif",
+                    "alt": "",
+                    "width": 400,
+                    "border_radius": 10,
+                    "horizontal_align": "left",
+                    "margin_bottom": 0,
+                    "horizontal_align_mobile": "center"
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "image_PTJPmt"
+              ]
+            },
+            "container_j6BiRz": {
+              "type": "container",
+              "name": "Container",
+              "settings": {
+                "width": 100,
+                "background_color": "",
+                "border_radius": 0,
+                "gap": 20,
+                "padding_vertical": 30,
+                "padding_horizontal": 0,
+                "flex_direction": "column",
+                "css_id": "",
+                "css_class": ""
+              },
+              "blocks": {
+                "heading_DQnX7h": {
+                  "type": "heading",
+                  "name": "Heading",
+                  "settings": {
+                    "heading": "Shipping Rates",
+                    "tag": "h2",
+                    "text_align": "start",
+                    "shadow": false,
+                    "shadow_color": "#000000",
+                    "margin_bottom": 0,
+                    "text_align_mobile": "left"
+                  },
+                  "blocks": {}
+                },
+                "rich_text_hKbn8h": {
+                  "type": "rich-text",
+                  "name": "Text",
+                  "settings": {
+                    "text": "<p><strong>Standard Shipping:</strong> Calculated at checkout based on your location and order weight.</p><p><strong>Free Shipping:</strong> We offer <strong>free standard shipping</strong> on all domestic orders over <strong>$50</strong>.</p>",
+                    "text_align": "left",
+                    "shadow": false,
+                    "shadow_color": "#000000",
+                    "margin_bottom": 0,
+                    "text_align_mobile": "left"
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "heading_DQnX7h",
+                "rich_text_hKbn8h"
+              ]
+            }
+          },
+          "block_order": [
+            "container_3KPw6w",
+            "container_j6BiRz"
+          ]
+        }
+      },
+      "block_order": [
+        "wrapper_r9Y3ni"
+      ],
+      "name": "Section Flexbox",
+      "settings": {
+        "color_scheme": "",
+        "background_color": "",
+        "background_size": "cover",
+        "background_repeat": "no-repeat",
+        "background_position_x": 50,
+        "background_position_y": 50,
+        "fullwidth": false,
+        "gap": 50,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "css_id": "",
+        "css_class": ""
+      }
+    },
+    "rich_text_eQ4nff": {
+      "type": "rich-text",
+      "blocks": {
+        "heading_LjyEjM": {
+          "type": "heading",
+          "settings": {
+            "heading": "<strong>Tracking Your Order</strong>",
+            "heading_size": "h1"
+          }
+        },
+        "text_nJCaB3": {
+          "type": "text",
+          "settings": {
+            "text": "<p>As soon as your order ships, we will email you a <strong>tracking link</strong>. Please allow up to 24 hours for the tracking status to update.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "heading_LjyEjM",
+        "text_nJCaB3"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "custom_flexbox_zJiDGa": {
+      "type": "custom-flexbox",
+      "blocks": {
+        "wrapper_3jthbU": {
+          "type": "wrapper",
+          "name": "Section Flexbox",
+          "settings": {
+            "gap": 0,
+            "flex_direction": "row",
+            "align_items": "stretch",
+            "flex_direction_mobile": "column"
+          },
+          "blocks": {
+            "container_pQbKiJ": {
+              "type": "container",
+              "name": "Container",
+              "settings": {
+                "width": 100,
+                "background_color": "",
+                "border_radius": 0,
+                "gap": 10,
+                "padding_vertical": 30,
+                "padding_horizontal": 0,
+                "flex_direction": "column",
+                "css_id": "",
+                "css_class": ""
+              },
+              "blocks": {
+                "heading_KmWzer": {
+                  "type": "heading",
+                  "name": "Heading",
+                  "settings": {
+                    "heading": "Damaged on Arrival?",
+                    "tag": "h2",
+                    "text_align": "start",
+                    "shadow": false,
+                    "shadow_color": "#000000",
+                    "margin_bottom": 0,
+                    "text_align_mobile": "left"
+                  },
+                  "blocks": {}
+                },
+                "rich_text_9VEmVc": {
+                  "type": "rich-text",
+                  "name": "Text",
+                  "settings": {
+                    "text": "<p>Mugs are fragile, but we have you covered. If your mug breaks during transit, we will replace it for free.</p><ol><li>Take a <strong>clear photo</strong> of the damaged mug and packaging.</li><li>Email the photo to <strong>[Your Email Address]</strong> within <strong>48 hours</strong> of delivery.</li><li>We will ship a brand-new replacement immediately.</li></ol>",
+                    "text_align": "left",
+                    "shadow": false,
+                    "shadow_color": "#000000",
+                    "margin_bottom": 0,
+                    "text_align_mobile": "left"
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "heading_KmWzer",
+                "rich_text_9VEmVc"
+              ]
+            },
+            "container_zWGYJq": {
+              "type": "container",
+              "name": "Container",
+              "settings": {
+                "width": 100,
+                "background_color": "",
+                "border_radius": 0,
+                "gap": 20,
+                "padding_vertical": 30,
+                "padding_horizontal": 0,
+                "flex_direction": "column",
+                "css_id": "",
+                "css_class": ""
+              },
+              "blocks": {
+                "image_qMWtX6": {
+                  "type": "image",
+                  "name": "Image",
+                  "settings": {
+                    "image": "shopify://shop_images/clara-garcia-PKd_LTQSF-U-unsplash.avif",
+                    "alt": "",
+                    "width": 400,
+                    "border_radius": 10,
+                    "horizontal_align": "right",
+                    "margin_bottom": 0,
+                    "horizontal_align_mobile": "left"
+                  },
+                  "blocks": {}
+                }
+              },
+              "block_order": [
+                "image_qMWtX6"
+              ]
+            }
+          },
+          "block_order": [
+            "container_pQbKiJ",
+            "container_zWGYJq"
+          ]
+        }
+      },
+      "block_order": [
+        "wrapper_3jthbU"
+      ],
+      "name": "Section Flexbox",
+      "settings": {
+        "color_scheme": "",
+        "background_color": "",
+        "background_size": "cover",
+        "background_repeat": "no-repeat",
+        "background_position_x": 50,
+        "background_position_y": 50,
+        "fullwidth": false,
+        "gap": 50,
+        "padding_top": 50,
+        "padding_bottom": 50,
+        "css_id": "",
+        "css_class": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "hero_banner_bWdtKe",
+    "multicolumn_yYnzw8",
+    "custom_flexbox_T6FNBq",
+    "rich_text_eQ4nff",
+    "custom_flexbox_zJiDGa"
+  ]
+}

@@ -1,0 +1,342 @@
+/* ==========================================================================
+   1. TOGGLE BUTTON LAYOUT STYLING
+   ========================================================================== */
+.dark-mode-toggle-wrapper {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 0.5rem 0 1.5rem;
+}
+
+#dark-mode-toggle {
+  background: transparent;
+  cursor: pointer;
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  transition: transform 0.2s ease;
+  border: none;
+}
+
+#dark-mode-toggle:hover {
+  transform: scale(1.1);
+}
+
+/* ==========================================================================
+   2. TOGGLE SVG COLOR & VISIBILITY LOGIC
+   ========================================================================== */
+.icon-sun svg,
+.icon-moon svg {
+  display: block;
+  fill: none; /* Forces background inside vectors to stay empty */
+}
+
+/* Light Mode: Show moon icon, paint it black or matching text */
+html:not([data-theme='dark']) .icon-sun {
+  display: none;
+}
+html:not([data-theme='dark']) .icon-moon svg {
+  stroke: #000000; /* Change to match your store header text */
+}
+
+/* Dark Mode: Show sun icon, paint it bright white or yellow */
+html[data-theme='dark'] .icon-moon {
+  display: none;
+}
+html[data-theme='dark'] .icon-sun svg {
+  stroke: #f4efeb; /* Change to #ffcb6b if you want a gold sun */
+}
+
+/* ==========================================================================
+   3. GLOBAL DARK MODE VARIABLES & CONTAINERS
+   ========================================================================== */
+
+/* Apply global layout dark backgrounds safely */
+html[data-theme='dark'] .section-sections-wrapper,
+html[data-theme='dark'] main#MainContent,
+html[data-theme='dark'] .shopify-section {
+  background-color: rgb(22, 18, 16);
+}
+
+/* Global fallback for text structures inside isolated sections */
+html[data-theme='dark'] p,
+html[data-theme='dark'] span:not(.badge),
+html[data-theme='dark'] li {
+  color: #f4efeb;
+}
+
+/* ==========================================================================
+   4. PRODUCT CARD LAYOUTS & BADGES
+   ========================================================================== */
+/* Globally update background/foreground RGB variables for dark mode */
+html[data-theme='dark'] [class^='color-scheme-'],
+html[data-theme='dark'] [class*=' color-scheme-'],
+html[data-theme='dark'] .card,
+html[data-theme='dark'] .card__inner {
+  --color-background: 34, 30, 28;
+  --color-foreground: 244, 239, 235;
+  background-color: rgb(22, 18, 16);
+  color: rgb(244, 239, 235);
+}
+
+/* Force standard and card text elements to be visible */
+html[data-theme='dark'] .card__heading,
+html[data-theme='dark'] .card__heading a,
+html[data-theme='dark'] .card__information .price,
+html[data-theme='dark'] .card__information .price__container,
+html[data-theme='dark'] .card__information .price-item {
+  color: #f4efeb;
+  --color-foreground: 244, 239, 235;
+}
+
+/* Fix Badges (Sale, Sold Out) for all color schemes */
+html[data-theme='dark'] .badge {
+  background-color: #f4efeb;
+  color: #161210;
+  border-color: #f4efeb;
+}
+
+/* Fix absolute vendor text above headings */
+html[data-theme='dark'] .card__information .caption-with-letter-spacing {
+  color: rgba(244, 239, 235);
+}
+
+/* ==========================================================================
+   5. CART DRAWER, CART OVERLAYS, & QUANTITY ADJUSTMENTS
+   ========================================================================== */
+html[data-theme='dark'] .cart__warnings .underline-link,
+html[data-theme='dark'] .cart__warnings a.button,
+html[data-theme='dark'] .cart-drawer .underlined-link,
+html[data-theme='dark'] .title-wrapper-width-link .underline-link {
+  color: #f4efeb;
+  text-decoration-color: #f4efeb;
+}
+
+/* Force the "Remove from Cart" trashcan SVG icon to turn white */
+html[data-theme='dark'] cart-remove-button .button,
+html[data-theme='dark'] cart-remove-button .icon-remove,
+html[data-theme='dark'] .cart-item__remove-button,
+html[data-theme='dark'] .cart-item__remove-button svg {
+  color: #f4efeb;
+  fill: #f4efeb;
+}
+
+/* Ensure empty, active drawers, and sticky layout dropdowns stay dark */
+html[data-theme='dark'] .drawer__inner,
+html[data-theme='dark'] .drawer__inner-empty,
+html[data-theme='dark'] .menu-drawer,
+html[data-theme='dark'] .cart-drawer,
+html[data-theme='dark'] .search-modal {
+  background-color: #221e1c;
+  color: #f4efeb;
+}
+
+/* ==========================================================================
+   6. NATIVE PRODUCT IMAGE HOVER MECHANICS
+   ========================================================================== */
+@media screen and (min-width: 990px) {
+  html[data-theme='dark'] .card-wrapper:hover .media.media--hover-effect > img:first-child:not(:only-child) {
+    opacity: 0;
+  }
+}
+
+/* ==========================================================================
+   7. PRECISE IMAGE DISPLAY CONTROLS
+   ========================================================================== */
+html[data-theme='dark'] .card .media img,
+html[data-theme='dark'] .card__media img,
+html[data-theme='dark'] .grid__item .media img {
+  display: block;
+  visibility: visible;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  mix-blend-mode: normal;
+  filter: none;
+}
+
+/* Let Dawn control the opacity changes for the first image on hover */
+html[data-theme='dark'] .card-wrapper:hover .media.media--hover-effect > img:first-child:not(:only-child) {
+  opacity: 0;
+}
+
+/* Let Dawn control the opacity changes for the second image on hover */
+html[data-theme='dark'] .card-wrapper .media.media--hover-effect > img + img {
+  opacity: 0;
+}
+html[data-theme='dark'] .card-wrapper:hover .media.media--hover-effect > img + img {
+  opacity: 1;
+}
+
+/* ==========================================================================
+   8. INPUT & CONTACT FORM ELEMENT FIELDS
+   ========================================================================== */
+/* Force the Contact Form main heading to be white */
+html[data-theme='dark'] .contact .title,
+html[data-theme='dark'] .contact .form-status {
+  color: #f4efeb;
+}
+
+/* Ensure floating input labels are readable */
+html[data-theme='dark'] .contact .field__label,
+html[data-theme='dark'] .field__label {
+  color: rgba(163, 149, 141);
+}
+
+/* Correct active focus halo bounds against dark panels */
+html[data-theme='dark'] .field__input:focus,
+html[data-theme='dark'] .field__input:not(:placeholder-shown),
+html[data-theme='dark'] .field__input:-webkit-autofill {
+  box-shadow: 0 0 0 calc(0.1rem + var(--inputs-border-width)) rgba(163, 149, 141);
+  outline: transparent;
+}
+
+/* ==========================================================================
+   9. GLOBAL CONTACT & CORE PAGE HEADINGS
+   ========================================================================== */
+html[data-theme='dark'] h1,
+html[data-theme='dark'] h2,
+html[data-theme='dark'] .main-page-title,
+html[data-theme='dark'] .page-title,
+html[data-theme='dark'] .title,
+html[data-theme='dark'] [class*='title'] {
+  color: #f4efeb;
+  --color-foreground: 244, 239, 235;
+}
+
+/* ==========================================================================
+   10. GLOBAL BUTTON STYLES OVERHAUL (UPDATED)
+   ========================================================================== */
+/* --- A. PRIMARY BUTTONS (Solid White) --- */
+html[data-theme='dark'] .button:not(.button--secondary),
+html[data-theme='dark'] button.button--primary,
+html[data-theme='dark'] button[type='submit']:not(.button--secondary),
+html[data-theme='dark'] .shopify-payment-button__button--unbranded,
+html[data-theme='dark'] .product-form__submit {
+  --color-button: 224, 130, 102;
+  --color-button-text: 22, 18, 16;
+  background-color: #e08266;
+  color: #f4efeb;
+  border: 1px solid rgb(224, 130, 102);
+  opacity: 1;
+}
+
+/* Keep label text contrast clean when active or hovered */
+html[data-theme='dark'] .button:not(.button--secondary):hover,
+html[data-theme='dark'] .product-form__submit:hover {
+  background-color: rgba(224, 130, 102, 0.9);
+  color: #f4efeb;
+}
+
+/* --- B. SECONDARY & OUTLINE BUTTONS (Clean White Border) --- */
+html[data-theme='dark'] .button--secondary,
+html[data-theme='dark'] .button.button--secondary,
+html[data-theme='dark'] a.button.button--secondary,
+html[data-theme='dark'] .collection__view-all .button,
+html[data-theme='dark'] .customer button.button--secondary {
+  --color-button: 22, 18, 16;
+  --color-button-text: 255, 255, 255;
+  background-color: transparent;
+  color: #f4efeb;
+  border: 1px solid #f4efeb;
+}
+
+/* --- C. SUBSCRIBE TO OUR EMAIL INPUT FIELD & BUTTON --- */
+/* Input field wrapper remains dark */
+html[data-theme='dark'] .newsletter-form__field-wrapper .field__input {
+  background-color: #161210;
+  color: #f4efeb;
+}
+
+/* Swaps the subscription button background to dark */
+html[data-theme='dark'] .newsletter-form__button,
+html[data-theme='dark'] button[name='commit'].newsletter-form__button {
+  background-color: transparent;
+  color: #f4efeb;
+  border: none; /* Blends cleanly with the dark input box border */
+}
+
+/* --- D. CART DRAWER TRASH CAN BUTTON FIX --- */
+/* Target the precise combination of utility classes Dawn matches to this button element */
+html[data-theme='dark'] .cart-drawer .cart-item__remove-button.button,
+html[data-theme='dark'] .cart-items .cart-item__remove-button.button,
+html[data-theme='dark'] cart-remove-button .button--tertiary.button {
+  --color-button: 22, 18, 16;
+  --color-button-text: 255, 255, 255;
+  --color-foreground: 255, 255, 255;
+  background-color: rgb(var(--color-button));
+  color: rgb(var(--color-button-text));
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+html[data-theme='dark'] .cart-drawer .cart-item__remove-button.button:hover,
+html[data-theme='dark'] .cart-items .cart-item__remove-button.button:hover,
+html[data-theme='dark'] cart-remove-button .button--tertiary.button:hover {
+  --color-button: 22, 18, 16;
+  --color-button-text: 255, 255, 255;
+  --color-foreground: 255, 255, 255;
+  background-color: rgb(var(--color-button));
+}
+
+/* Force Dawn's structural overlay layer to mirror the new button color block */
+html[data-theme='dark'] .cart-item__remove-button.button::after,
+html[data-theme='dark'] cart-remove-button .button--tertiary.button::after {
+  background-color: rgb(var(--color-button));
+  box-shadow: none;
+}
+
+/* ==========================================================================
+   11. PRODUCT PAGE SHARE BUTTON FIX
+   ========================================================================== */
+html[data-theme='dark'] .share-button__button {
+  color: #f4efeb;
+  background-color: transparent;
+}
+
+/* ==========================================================================
+   12. HEADER AND FOOTER LINKS
+   ========================================================================== */
+html[data-theme='dark'] .header__menu-item:hover span,
+html[data-theme='dark'] .header__active-menu-item,
+html[data-theme='dark'] .footer-block__details-content a.link:hover,
+html[data-theme='dark'] .footer-block__details-content .list-menu__item--active {
+  background-color: #221e1c;
+}
+
+/* ==========================================================================
+   13. HEADER AND FOOTER LINKS
+   ========================================================================== */
+html[data-theme='dark'] .section-row-item,
+html[data-theme='dark'] .grid-item {
+  border-color: #221e1c;
+  background-color: #221e1c;
+}
+
+html[data-theme='dark'] .list-social__link .svg-wrapper path {
+  fill: #f4efeb;
+}
+
+/* ==========================================================================
+   14. JUDGE.ME APP
+   ========================================================================== */
+/* FORCE OVERRIDE ALL JUDGE.ME TEXT ROOT VARIABLES IN DARK MODE */
+html[data-theme*='dark'],
+body[data-theme*='dark'],
+[data-theme='dark'] {
+  --jdgm-primary-text-color: #e08266;
+  --jdgm-secondary-text-color: #f4efeb;
+}
+
+/* DEEP TREE CSS TARGETING */
+html[data-theme*='dark'] .jdgm-widget *,
+body[data-theme*='dark'] .jdgm-widget *,
+[data-theme='dark'] .jdgm-rev__body,
+[data-theme='dark'] .jdgm-rev__body * {
+  color: #f9f9f9;
+}

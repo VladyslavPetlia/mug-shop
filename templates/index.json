@@ -1,0 +1,221 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "hero_banner_LtrMwp": {
+      "type": "hero-banner",
+      "name": "Hero Banner Pro",
+      "settings": {
+        "margin_top": 0,
+        "margin_bottom": 60,
+        "layout": "full",
+        "height": "large",
+        "content_alignment": "center",
+        "vertical_alignment": "center",
+        "video": "shopify://files/videos/9736881-uhd_3840_2160_24fps.mp4",
+        "enable_video_looping": true,
+        "overlay_color": "#000000",
+        "overlay_opacity": 40,
+        "section-color_scheme": "scheme-1",
+        "subheading": "",
+        "heading": "<p>Your Daily Ritual Starts Here</p>",
+        "heading_tag": "h1",
+        "body": "<p>Elevate your morning ritual with our handcrafted mugs. Each piece is designed for comfort and style, crafted to make every sip special. Browse our collection of unique mugs that bring personality to your daily routine.</p>",
+        "countdown_date": "",
+        "button_label": "Shop Now",
+        "button_link": "/collections/all",
+        "button_style": "primary",
+        "button_label_2": "",
+        "button_link_2": "",
+        "button_style_2": "outline"
+      }
+    },
+    "collection_list_FnhjHb": {
+      "type": "collection-list",
+      "blocks": {
+        "featured_collection_mEQmpz": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "crafted-stoneware"
+          }
+        },
+        "featured_collection_zRifYC": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "hand-made-ceramic"
+          }
+        },
+        "featured_collection_wTCMmN": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "organic-porcelain"
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_mEQmpz",
+        "featured_collection_zRifYC",
+        "featured_collection_wTCMmN"
+      ],
+      "name": "t:sections.collection-list.presets.name",
+      "settings": {
+        "title": "<strong>Top Collections</strong>",
+        "heading_size": "h1",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "show_view_all": true,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 0
+      }
+    },
+    "featured_collection": {
+      "type": "featured-collection",
+      "settings": {
+        "collection": "all",
+        "products_to_show": 8,
+        "title": "<strong>Featured products</strong>",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "columns_desktop": 4,
+        "enable_desktop_slider": false,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "color_scheme": "scheme-1",
+        "image_ratio": "adapt",
+        "image_shape": "default",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "quick_add": "none",
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 44,
+        "padding_bottom": 36
+      }
+    },
+    "hero_banner_fbtmUc": {
+      "type": "hero-banner",
+      "name": "Hero Banner Pro",
+      "settings": {
+        "margin_top": 80,
+        "margin_bottom": 0,
+        "layout": "full",
+        "height": "large",
+        "content_alignment": "center",
+        "vertical_alignment": "center",
+        "image": "shopify://shop_images/pexels-rdne-7309213.avif",
+        "enable_video_looping": true,
+        "overlay_color": "#000000",
+        "overlay_opacity": 50,
+        "section-color_scheme": "",
+        "subheading": "top sales",
+        "heading": "<p>10% off on Best Mug</p>",
+        "heading_tag": "h2",
+        "body": "<p>Best Offer on Mill Stoneware Mug. Don't loos opportunity!</p>",
+        "countdown_date": "2026/12/31",
+        "button_label": "Buy Now",
+        "button_link": "shopify://products/mill-stoneware-mug",
+        "button_style": "primary",
+        "button_label_2": "",
+        "button_link_2": "",
+        "button_style_2": "outline"
+      }
+    },
+    "featured_blog_b9cr7i": {
+      "type": "featured-blog",
+      "name": "t:sections.featured-blog.presets.name",
+      "settings": {
+        "blog": "news",
+        "post_limit": 3,
+        "heading": "<strong>Blog posts</strong>",
+        "heading_size": "h1",
+        "columns_desktop": 3,
+        "show_view_all": false,
+        "show_image": true,
+        "show_date": false,
+        "show_author": false,
+        "color_scheme": "",
+        "padding_top": 100,
+        "padding_bottom": 100
+      }
+    },
+    "multicolumn_DpXGYn": {
+      "type": "multicolumn",
+      "blocks": {
+        "column_WyqVHk": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/package.svg",
+            "title": "What is your return policy?",
+            "text": "<p>We offer a 30-day hassle-free return policy on all orders.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_Gne8YF": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/truck.svg",
+            "title": "How long does shipping take?",
+            "text": "<p>Standard shipping takes 3-5 business days.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_nzAcJ8": {
+          "type": "column",
+          "settings": {
+            "image": "shopify://shop_images/globe-hemisphere-west.svg",
+            "title": "Do you ship internationally?",
+            "text": "<p>Yes, we ship to over 50 countries worldwide.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_WyqVHk",
+        "column_Gne8YF",
+        "column_nzAcJ8"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "<strong>Multicolumn</strong>",
+        "heading_size": "h1",
+        "image_width": "third",
+        "image_ratio": "square",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "color_scheme": "scheme-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 100
+      }
+    }
+  },
+  "order": [
+    "hero_banner_LtrMwp",
+    "collection_list_FnhjHb",
+    "featured_collection",
+    "hero_banner_fbtmUc",
+    "featured_blog_b9cr7i",
+    "multicolumn_DpXGYn"
+  ]
+}

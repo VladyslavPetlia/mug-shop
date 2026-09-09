@@ -1,0 +1,114 @@
+{% style %}
+  #shopify-block-{{ block.id }} img {
+    {% case block.settings.horizontal_align %}
+        {% when 'center' %}
+            margin-left: auto;
+            margin-right: auto;
+        {% when 'right' %}
+            margin-left: auto;
+            margin-right: 0;
+        {% else %}
+            margin-left: 0;
+            margin-right: auto;
+    {% endcase %}
+    margin-bottom: {{ block.settings.margin_bottom }}px;
+    border-radius: {{ block.settings.border_radius }}px;
+  }
+  @media (max-width: 750px) { /* Mobile */
+    #shopify-block-{{ block.id }} img {
+      margin-bottom: calc({{ block.settings.margin_bottom }}px / 2);
+      {% case block.settings.horizontal_align_mobile %}
+        {% when 'center' %}
+            margin-left: auto;
+            margin-right: auto;
+        {% when 'right' %}
+            margin-left: auto;
+            margin-right: 0;
+        {% else %}
+            margin-left: 0;
+            margin-right: auto;
+      {% endcase %}
+    }
+  }
+{% endstyle %}
+
+{%- assign image_size_2x = block.settings.width | times: 2 | at_most: 5760 -%}
+<img
+  srcset="{{ block.settings.image | image_url: width: block.settings.width }}, {{ block.settings.image | image_url: width: image_size_2x }} 2x"
+  src="{{ block.settings.image | image_url: width: 760 }}"
+  alt="{{ block.settings.alt | escape }}"
+  loading="lazy"
+  width="{{ block.settings.width }}"
+  height="auto"
+>
+
+{% schema %}
+{
+  "name": "Image",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "text",
+      "id": "alt",
+      "label": "Alt text"
+    },
+    {
+      "type": "number",
+      "id": "width",
+      "label": "Width",
+      "default": 300
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "label": "Image Corner Radius",
+      "default": 0
+    },
+    {
+      "type": "select",
+      "id": "horizontal_align",
+      "label": "Align",
+      "options": [
+        { "value": "left", "label": "left" },
+        { "value": "center", "label": "center" },
+        { "value": "right", "label": "right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "label": "Margin bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "default": 0,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Mobile"
+    },
+    {
+      "type": "select",
+      "id": "horizontal_align_mobile",
+      "label": "Align",
+      "options": [
+        { "value": "left", "label": "left" },
+        { "value": "center", "label": "center" },
+        { "value": "right", "label": "right" }
+      ],
+      "default": "left"
+    }
+  ],
+  "presets": [{ "name": "Image" }]
+}
+{% endschema %}

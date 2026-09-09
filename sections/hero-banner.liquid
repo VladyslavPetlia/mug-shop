@@ -1,0 +1,361 @@
+{{ 'custom-sections.css' | asset_url | stylesheet_tag }}
+
+{% style %}
+  @media screen and (max-width: 750px) {
+    .hero-banner--height-small {
+      min-height: 500px;
+    }
+    .hero-banner--height-medium {
+      min-height: 500px;
+    }
+    .hero-banner--height-large {
+      min-height: 500px;
+    }
+    .hero-banner--height-full {
+      min-height: 500px;
+    }
+  }
+{% endstyle %}
+
+{%- liquid
+  assign section_id = 'hero-' | append: section.id
+-%}
+
+<section
+  id="{{ section_id }}"
+  class="hero-banner hero-banner--{{ section.settings.layout }} hero-banner--height-{{ section.settings.height }} color-{{- section.settings.section-color_scheme -}}"
+  data-section-id="{{ section.id }}"
+  data-section-type="hero-banner"
+  style="margin-top: {{ section.settings.margin_top }}px; margin-bottom: {{ section.settings.margin_bottom }}px;"
+>
+  {%- if section.settings.video != blank -%}
+    <div class="hero-banner__video-wrap" aria-hidden="true">
+      {{
+        section.settings.video
+        | video_tag:
+          image_size: '1920x',
+          autoplay: true,
+          loop: section.settings.enable_video_looping,
+          controls: true,
+          muted: true
+      }}
+    </div>
+  {%- elsif section.settings.image != blank -%}
+    <div class="hero-banner__image-wrap">
+      {{
+        section.settings.image
+        | image_url: width: 1920
+        | image_tag:
+          loading: 'eager',
+          fetchpriority: 'high',
+          class: 'hero-banner__image',
+          widths: '375, 750, 1100, 1500, 1780, 1920',
+          sizes: '100vw'
+      }}
+    </div>
+  {%- endif -%}
+
+  <div
+    class="hero-banner__overlay"
+    style="
+      background-color: {{ section.settings.overlay_color | default: '#000000' }};
+      opacity: calc({{ section.settings.overlay_opacity | default: 40 }} / 100);
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      display: block;
+    "
+    aria-hidden="true"
+  ></div>
+
+  <div class="hero-banner__content-wrap page-width">
+    <div
+      class="hero-banner__content hero-banner__content--{{ section.settings.content_alignment }} hero-banner_align--{{ section.settings.vertical_alignment }}"
+    >
+      {%- if section.settings.subheading != blank -%}
+        <p class="hero-banner__subheading animate-in" data-animate="fade-up" data-delay="0">
+          {{- section.settings.subheading | escape -}}
+        </p>
+      {%- endif -%}
+
+      {%- if section.settings.heading != blank -%}
+        <{{ section.settings.heading_tag }}
+          class="hero-banner__heading animate-in"
+          data-animate="fade-up"
+          data-delay="100"
+        >
+          {{- section.settings.heading -}}
+        </{{ section.settings.heading_tag }}>
+      {%- endif -%}
+
+      {%- if section.settings.body != blank -%}
+        <div class="hero-banner__body rte animate-in" data-animate="fade-up" data-delay="200">
+          {{- section.settings.body -}}
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.countdown_date != blank -%}
+        <div
+          class="hero-banner__countdown animate-in"
+          style="display: flex; justify-content: {{ section.settings.content_alignment }};"
+          data-animate="fade-up"
+          data-delay="250"
+          data-countdown="{{ section.settings.countdown_date }}"
+        >
+          <div class="countdown__item">
+            <span class="countdown__num" data-days>00</span><span class="countdown__label">Days</span>
+          </div>
+          <div class="countdown__item">
+            <span class="countdown__num" data-hours>00</span><span class="countdown__label">Hours</span>
+          </div>
+          <div class="countdown__item">
+            <span class="countdown__num" data-minutes>00</span><span class="countdown__label">Mins</span>
+          </div>
+          <div class="countdown__item">
+            <span class="countdown__num" data-seconds>00</span><span class="countdown__label">Secs</span>
+          </div>
+        </div>
+      {%- endif -%}
+
+      {%- if section.settings.button_label != blank or section.settings.button_label_2 != blank -%}
+        <div class="hero-banner__buttons animate-in" data-animate="fade-up" data-delay="300">
+          {%- if section.settings.button_label != blank -%}
+            <a
+              href="{{ section.settings.button_link }}"
+              class="button button--{{ section.settings.button_style }}"
+              {%- if section.settings.button_link == blank %}
+                role="link" aria-disabled="true"
+              {%- endif -%}
+            >
+              {{- section.settings.button_label | escape -}}
+            </a>
+          {%- endif -%}
+          {%- if section.settings.button_label_2 != blank -%}
+            <a
+              href="{{ section.settings.button_link_2 }}"
+              class="button button--{{ section.settings.button_style_2 }}"
+            >
+              {{- section.settings.button_label_2 | escape -}}
+            </a>
+          {%- endif -%}
+        </div>
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+<script src="{{ 'custom-sections.js' | asset_url }}" defer></script>
+
+{% schema %}
+{
+  "name": "Hero Banner",
+  "tag": "section",
+  "class": "section-hero-banner",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Layout"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Margin Top",
+      "default": 0
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "Margin Bottom",
+      "default": 0
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Layout",
+      "options": [
+        { "value": "full", "label": "Full Width" },
+        { "value": "split", "label": "Split (text + image)" }
+      ],
+      "default": "full"
+    },
+    {
+      "type": "select",
+      "id": "height",
+      "label": "Height",
+      "options": [
+        { "value": "small", "label": "Small (500px)" },
+        { "value": "medium", "label": "Medium (700px)" },
+        { "value": "large", "label": "Large (900px)" },
+        { "value": "full", "label": "X-Large (1000px)" }
+      ],
+      "default": "large"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "label": "Horizontal Alignment",
+      "options": [
+        { "value": "left", "label": "Left" },
+        { "value": "center", "label": "Center" },
+        { "value": "right", "label": "Right" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "select",
+      "id": "vertical_alignment",
+      "label": "Vertical Alignment",
+      "options": [
+        { "value": "top", "label": "Top" },
+        { "value": "center", "label": "Center" },
+        { "value": "bottom", "label": "Bottom" }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Media"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Background Image"
+    },
+    {
+      "type": "video",
+      "id": "video",
+      "label": "Chose Video",
+      "info": "Video overrides Image"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_video_looping",
+      "label": "t:sections.video.settings.enable_video_looping.label",
+      "default": true
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "label": "Overlay Opacity",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "%",
+      "default": 40
+    },
+    {
+      "type": "color_scheme",
+      "id": "section-color_scheme",
+      "label": "Color Scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "header",
+      "content": "Content"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading"
+    },
+    {
+      "type": "richtext",
+      "id": "heading",
+      "label": "Heading",
+      "default": "<p>Welcome to Our Store</p>"
+    },
+    {
+      "type": "select",
+      "id": "heading_tag",
+      "label": "Heading Tag",
+      "options": [
+        { "value": "h1", "label": "H1" },
+        { "value": "h2", "label": "H2" }
+      ],
+      "default": "h1"
+    },
+    {
+      "type": "richtext",
+      "id": "body",
+      "label": "Body Text"
+    },
+    {
+      "type": "text",
+      "id": "countdown_date",
+      "label": "Countdown Date",
+      "info": "Example: 2027/12/31 23:59:59"
+    },
+    {
+      "type": "header",
+      "content": "Buttons"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Primary Button Label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Primary Button Link"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Primary Button Style",
+      "options": [
+        { "value": "primary", "label": "Primary" },
+        { "value": "secondary", "label": "Secondary" },
+        { "value": "outline", "label": "Outline" }
+      ],
+      "default": "primary"
+    },
+    {
+      "type": "text",
+      "id": "button_label_2",
+      "label": "Secondary Button Label"
+    },
+    {
+      "type": "url",
+      "id": "button_link_2",
+      "label": "Secondary Button Link"
+    },
+    {
+      "type": "select",
+      "id": "button_style_2",
+      "label": "Secondary Button Style",
+      "options": [
+        { "value": "primary", "label": "Primary" },
+        { "value": "secondary", "label": "Secondary" },
+        { "value": "outline", "label": "Outline" }
+      ],
+      "default": "outline"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hero Banner",
+      "settings": {
+        "heading": "<p>Bold Heading That Converts</p>",
+        "button_label": "Shop Now",
+        "button_link": "/collections/all"
+      }
+    }
+  ]
+}
+{% endschema %}

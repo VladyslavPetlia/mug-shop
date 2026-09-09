@@ -1,0 +1,73 @@
+{% style %}
+  #shopify-block-{{ block.id }} .wrapper {
+    flex-direction: {{ block.settings.flex_direction }};
+    align-items: {{ block.settings.align_items }};
+    gap: {{ block.settings.gap }}px;
+  }
+  @media (max-width: 750px) { /* Mobile */
+    #shopify-block-{{ block.id }} .wrapper {
+      flex-direction: {{ block.settings.flex_direction_mobile }} !important;
+      gap: calc({{ block.settings.gap }}px / 2);
+    }
+  }
+{% endstyle %}
+
+<div class="wrapper">
+  {% content_for 'blocks' %}
+</div>
+
+{% schema %}
+{
+  "name": "Wrapper",
+  "blocks": [{ "type": "container" }],
+  "settings": [
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 0
+    },
+    {
+      "type": "select",
+      "id": "flex_direction",
+      "label": "Flex direction",
+      "options": [
+        { "label": "column", "value": "column" },
+        { "label": "row", "value": "row" }
+      ],
+      "default": "row"
+    },
+    {
+      "type": "select",
+      "id": "align_items",
+      "label": "Align items",
+      "options": [
+        { "label": "default", "value": "stretch" },
+        { "label": "top", "value": "flex-start" },
+        { "label": "bottom", "value": "flex-end" },
+        { "label": "center", "value": "center" }
+      ],
+      "default": "stretch"
+    },
+    {
+      "type": "header",
+      "content": "Mobile"
+    },
+    {
+      "type": "select",
+      "id": "flex_direction_mobile",
+      "label": "Flex direction",
+      "options": [
+        { "label": "normal", "value": "column" },
+        { "label": "reverse", "value": "column-reverse" }
+      ],
+      "default": "column"
+    }
+  ],
+  "presets": [{ "name": "Section Flexbox" }]
+}
+{% endschema %}

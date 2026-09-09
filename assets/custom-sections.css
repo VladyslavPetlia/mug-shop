@@ -1,0 +1,196 @@
+/* ==========================================================================
+   Shopify Custom Sections — Base Styles
+   ========================================================================== */
+
+:root {
+  --color-primary: #6d3e1c;
+  --color-secondary: #f4f4f4;
+  --color-accent: #e96134;
+  --color-text: #0f1012;
+  --color-text-muted: #6b7280;
+  --color-border: #e5e7eb;
+  --color-bg: #f4f4f4;
+  --color-bg-alt: #f9fafb;
+  --font-heading: var(--font-heading-family), sans-serif;
+  --font-body: var(--font-body-family), sans-serif;
+  --spacing-xs: 8px;
+  --spacing-sm: 16px;
+  --spacing-md: 24px;
+  --spacing-lg: 48px;
+  --spacing-xl: 80px;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --transition: 0.2s ease;
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+}
+
+/* ===================== HERO BANNER ===================== */
+.hero-banner {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+}
+.hero-banner--height-small {
+  min-height: 500px;
+}
+.hero-banner--height-medium {
+  min-height: 700px;
+}
+.hero-banner--height-large {
+  min-height: 900px;
+}
+.hero-banner--height-full {
+  min-height: 1000px;
+}
+.hero-banner__video-wrap {
+  position: absolute;
+  top: 0;
+  right: 50%;
+  transform: translateX(50%);
+}
+.hero-banner__image-wrap {
+  position: absolute;
+  inset: 0;
+}
+.hero-banner__video,
+.hero-banner__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.hero-banner__content-wrap {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-xl) var(--spacing-sm);
+}
+.hero-banner--split .hero-banner__content-wrap {
+  min-height: 70vh;
+}
+.hero-banner__content {
+  max-width: 640px;
+  color: white;
+}
+.hero-banner__content--center {
+  text-align: center;
+  margin: 0 auto;
+}
+.hero-banner__content--right {
+  text-align: right;
+  margin-left: auto;
+}
+.hero-banner_align--top {
+  margin-top: 0;
+  margin-bottom: auto;
+}
+.hero-banner_align--center {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.hero-banner_align--bottom {
+  margin-top: auto;
+}
+.hero-banner__subheading {
+  font-size: 0.875rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin-bottom: var(--spacing-xs);
+  opacity: 0.85;
+}
+.hero-banner__heading {
+  font-size: clamp(2rem, 5vw, 4rem);
+  font-weight: 700;
+  line-height: 1.1;
+  color: white;
+  margin-bottom: var(--spacing-md);
+}
+.hero-banner__body {
+  margin-bottom: var(--spacing-md);
+}
+.hero-banner__buttons {
+  display: flex;
+  gap: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+.hero-banner__content--center .hero-banner__buttons {
+  justify-content: center;
+}
+.hero-banner__split-image img {
+  border-radius: var(--radius-lg);
+  max-width: 500px;
+  width: 100%;
+}
+
+/* Countdown */
+.hero-banner__countdown {
+  display: flex;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+.countdown__item {
+  text-align: center;
+}
+.countdown__num {
+  display: block;
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.countdown__label {
+  font-size: 0.75rem;
+}
+
+/* ===================== FAQ ===================== */
+.faq__heading {
+  text-align: center;
+  margin-bottom: var(--spacing-lg);
+}
+.faq__grid {
+  max-width: 800px;
+  margin: 0 auto;
+}
+.faq__grid--two-col {
+  max-width: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--spacing-sm);
+}
+@media (max-width: 749px) {
+  .faq__grid--two-col {
+    grid-template-columns: 1fr;
+  }
+}
+.faq__item {
+  border-bottom: 1px solid var(--color-border);
+}
+.faq__question {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: var(--spacing-md) 0;
+  cursor: pointer;
+  user-select: none;
+}
+.faq__question::-webkit-details-marker {
+  display: none;
+}
+.faq__icon {
+  flex-shrink: 0;
+  transition: transform var(--transition);
+}
+details[open] .faq__icon {
+  transform: rotate(180deg);
+}
+.faq__answer {
+  padding-bottom: var(--spacing-md);
+  color: var(--color-text-muted);
+}

@@ -1,0 +1,128 @@
+{{ 'banners.css' | asset_url | stylesheet_tag }}
+
+<div class="page-width banner_main">
+  {% for block in section.blocks %}
+    {% if block.type == 'banner' %}
+      <div class="banner_block color-{{ section.settings.color_scheme }} gradient" {{ block.shopify_attributes }}>
+        {%- comment -%} Text & Button Content Layer {%- endcomment -%}
+        <div class="banner-content_block">
+          {% if block.settings['banner-top_description'] != blank %}
+            <div class="banner-top-description_block">
+              {{ block.settings['banner-top_description'] }}
+            </div>
+          {% endif %}
+
+          {% if block.settings.heading != blank %}
+            <h2 class="banner-title_block">
+              {{ block.settings.heading | escape }}
+            </h2>
+          {% endif %}
+
+          {% if block.settings['banner-bottom_description'] != blank %}
+            <div class="banner-bottom-description_block">
+              {{ block.settings['banner-bottom_description'] }}
+            </div>
+          {% endif %}
+
+          {% if block.settings.button_label != blank and block.settings.button_url != blank %}
+            <a class="" href="{{ block.settings.button_url }}">
+              <button class="button">
+                {{ block.settings.button_label | escape }}
+              </button>
+            </a>
+          {% endif %}
+        </div>
+
+        {%- comment -%} Background Media Image Layer {%- endcomment -%}
+        {% if block.settings.banner_image != blank %}
+          {{
+            block.settings.banner_image
+            | image_url: width: 700
+            | image_tag: loading: 'lazy', sizes: '(min-width: 750px) 50vw, 100vw'
+          }}
+        {% else %}
+          {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+        {% endif %}
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "Banners",
+  "settings": [
+    {
+      "type": "text",
+      "id": "section_title",
+      "label": "Section Title",
+      "info": "Optional. Banners are self explanatory."
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-6"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "banner",
+      "name": "Banner",
+      "limit": 8,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "banner_image",
+          "label": "Banner Image"
+        },
+        {
+          "type": "richtext",
+          "id": "banner-top_description",
+          "label": "Top Description",
+          "default": "<p>Top Description</p>"
+        },
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Heading",
+          "default": "Title",
+          "info": "Banner Heading"
+        },
+        {
+          "type": "richtext",
+          "id": "banner-bottom_description",
+          "label": "Bottom Description",
+          "default": "<p>Bottom Description</p>"
+        },
+        {
+          "type": "text",
+          "id": "button_label",
+          "label": "Button Label",
+          "info": "Leave blank to hide",
+          "default": "Button"
+        },
+        {
+          "type": "url",
+          "id": "button_url",
+          "label": "Link",
+          "info": "Leave blank to hide"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banners",
+      "blocks": [
+        {
+          "type": "banner"
+        },
+        {
+          "type": "banner"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

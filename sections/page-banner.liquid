@@ -1,0 +1,99 @@
+{{ 'page-banner.css' | asset_url | stylesheet_tag }}
+
+{%- assign banner = section.settings.page_metaobject_banner -%}
+
+<div class="page-width color-{{ section.settings.section-color_scheme }}">
+  <div class="page-banner_image-container">
+    {% if banner.image %}
+      {{ banner.image | image_url: width: 1200 | image_tag: loading: 'eager', sizes: '(min-width: 750px) 50vw, 100vw' }}
+    {% elsif section.setting.image %}
+      {{
+        section.setting.image
+        | image_url: width: 1200
+        | image_tag: loading: 'eager', sizes: '(min-width: 750px) 50vw, 100vw'
+      }}
+    {% else %}
+      {{ 'hero-apparel-1' | placeholder_svg_tag: 'placeholder-svg' }}
+    {% endif %}
+
+    <h2
+      class="page-banner_title"
+      style="background-color: {{ section.settings.bg_color }}; border-radius: {{ section.settings.border_radius }}px;"
+    >
+      {% if banner.title %}
+        {{ banner.title }}
+      {% else %}
+        {{ section.settings.title }}
+      {% endif %}
+    </h2>
+  </div>
+
+  {%- if banner.description != blank -%}
+    <div class="page-banner_description">
+      {% if banner.description %}
+        {{ banner.description | newline_to_br }}
+      {% else %}
+        {{ section.settings.description }}
+      {% endif %}
+    </div>
+  {%- endif -%}
+</div>
+
+{% schema %}
+{
+  "name": "Page Banner",
+  "settings": [
+    {
+      "type": "metaobject",
+      "id": "page_metaobject_banner",
+      "label": "Page Banner",
+      "metaobject_type": "page_banner"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Title Text for Page Banner",
+      "info": "Choose metaobject or Right Title her"
+    },
+    {
+      "type": "richtext",
+      "id": "description",
+      "label": "Description",
+      "default": "<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae voluptatem earum ipsa maiores quo odio ad aspernatur, suscipit, magni molestiae porro! Aliquid ut, dicta asperiores dolore voluptatum explicabo deserunt ullam?</p>"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    },
+    {
+      "type": "color_scheme",
+      "id": "section-color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "color",
+      "id": "bg_color",
+      "label": "Background Color for Title",
+      "default": "#ffffff"
+    },
+    {
+      "type": "range",
+      "id": "border_radius",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Border Radius for Title",
+      "default": 0
+    }
+  ],
+  "presets": [
+    {
+      "name": "Page Banner"
+    }
+  ]
+}
+{% endschema %}

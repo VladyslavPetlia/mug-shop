@@ -1,0 +1,84 @@
+{% style %}
+  #shopify-block-{{ block.id }} .richtext {
+    margin-bottom: {{ block.settings.margin_bottom }}px;
+    text-align: {{ block.settings.text_align }};
+    text-shadow: text-shadow: {% if block.settings.shadow %}
+      1px 1px 2px {{ block.settings.shadow_color }}
+    {% endif %};
+  }
+  @media (max-width: 750px) { /* Mobile */
+    #shopify-block-{{ block.id }} .richtext {
+      margin-bottom: calc({{ block.settings.margin_bottom }}px / 2);
+      text-align: {{ block.settings.text_align_mobile }};
+    }
+  }
+{% endstyle %}
+
+<div class="richtext">
+  {{ block.settings.text }}
+</div>
+
+{% schema %}
+{
+  "name": "Text",
+  "settings": [
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut vulputate eros ipsum, quis fringilla lorem posuere vel. Vivamus rutrum nunc congue suscipit tincidunt. Ut at convallis nisi, nec finibus dolor. In ac auctor leo, eget viverra libero. Integer suscipit sit amet lorem at dignissim. Maecenas nec molestie tortor, at semper magna.</p>"
+    },
+    {
+      "type": "select",
+      "id": "text_align",
+      "label": "Text align",
+      "options": [
+        { "label": "left", "value": "left" },
+        { "label": "center", "value": "center" },
+        { "label": "right", "value": "right" },
+        { "label": "justify", "value": "justify" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "checkbox",
+      "id": "shadow",
+      "label": "Text Shadow",
+      "default": false,
+      "info": "Text Shadow ON or OFF"
+    },
+    {
+      "type": "color",
+      "id": "shadow_color",
+      "label": "Shadow Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "label": "Margin bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "default": 0,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Mobile"
+    },
+    {
+      "type": "select",
+      "id": "text_align_mobile",
+      "label": "Text align",
+      "options": [
+        { "label": "left", "value": "left" },
+        { "label": "center", "value": "center" },
+        { "label": "right", "value": "right" }
+      ],
+      "default": "left"
+    }
+  ],
+  "presets": [{ "name": "Text" }]
+}
+{% endschema %}

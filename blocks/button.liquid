@@ -1,0 +1,140 @@
+{% style %}
+  #shopify-block-{{ block.id }} .button {
+    {% case block.settings.button_align %}
+        {% when 'center' %}
+            margin-left: auto;
+            margin-right: auto;
+        {% when 'right' %}
+            margin-left: auto;
+            margin-right: 0;
+        {% else %}
+            margin-left: 0;
+            margin-right: auto;
+    {% endcase %}
+    margin-bottom: {{ block.settings.margin_bottom }}px;
+    width: {{ block.settings.button_width }};
+  }
+  @media (max-width: 750px) { /* Mobile */
+    #shopify-block-{{ block.id }} .button {
+      margin-bottom: calc({{ block.settings.margin_bottom }}px / 2);
+      {% case block.settings.button_align_mobile %}
+        {% when 'center' %}
+            margin-left: auto;
+            margin-right: auto;
+        {% when 'right' %}
+            margin-left: auto;
+            margin-right: 0;
+        {% else %}
+            margin-left: 0;
+            margin-right: auto;
+      {% endcase %}
+    }
+  }
+{% endstyle %}
+
+<a
+  class="button button--{{ block.settings.button_style }}"
+  target="{{ block.settings.button_target }}"
+  href="{{ block.settings.button_url }}"
+>
+  {{ block.settings.button_text }}
+</a>
+
+{% schema %}
+{
+  "name": "Button",
+  "settings": [
+    {
+      "type": "text",
+      "id": "button_text",
+      "label": "Text",
+      "default": "Button"
+    },
+    {
+      "type": "url",
+      "id": "button_url",
+      "label": "URL"
+    },
+    {
+      "type": "select",
+      "id": "button_target",
+      "label": "Target",
+      "options": [
+        { "value": "_self", "label": "Same tab" },
+        { "value": "_blank", "label": "New tab/window" },
+        { "value": "_parent", "label": "Parent frame (iframe)" },
+        { "value": "_top", "label": "Top window (exit iframe)" }
+      ],
+      "default": "_self"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": "Style",
+      "options": [
+        { "value": "primary", "label": "primary" },
+        { "value": "secondary", "label": "secondary" }
+      ],
+      "default": "primary"
+    },
+    {
+      "type": "select",
+      "id": "button_width",
+      "label": "Width",
+      "options": [
+        { "value": "auto", "label": "default" },
+        { "value": "max-content", "label": "content" },
+        { "value": "100%", "label": "full width" }
+      ],
+      "default": "auto"
+    },
+    {
+      "type": "select",
+      "id": "button_align",
+      "label": "Align",
+      "options": [
+        { "value": "left", "label": "left" },
+        { "value": "center", "label": "center" },
+        { "value": "right", "label": "right" }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "range",
+      "id": "margin_top",
+      "label": "Margin top",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 0,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "label": "Margin bottom",
+      "min": 0,
+      "max": 200,
+      "step": 2,
+      "default": 0,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Mobile"
+    },
+    {
+      "type": "select",
+      "id": "button_align_mobile",
+      "label": "Align",
+      "options": [
+        { "value": "left", "label": "left" },
+        { "value": "center", "label": "center" },
+        { "value": "right", "label": "right" }
+      ],
+      "default": "left"
+    }
+  ],
+  "presets": [{ "name": "Button" }]
+}
+{% endschema %}

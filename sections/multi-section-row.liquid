@@ -1,0 +1,146 @@
+{{ 'multi-section-row.css' | asset_url | stylesheet_tag }}
+
+<div class="multi-section-row_container page-width color-{{ section.settings.section-color_scheme }}">
+  {% for block in section.blocks %}
+    <a
+      href="{{ block.settings.url }}"
+      class="section-row-item color-{{ section.settings.color_scheme }}"
+    >
+      <div
+        class="multi-section-row_content"
+        style="align-items: {{ section.settings.block-item_content }}; text-align: {{ section.settings.block-item_content }};"
+      >
+        <div class="multi-section-row_image-container">
+          {% if block.settings.image != blank %}
+            {{ block.settings.image | image_url: width: 300 | image_tag: loading: 'eager' }}
+          {% else %}
+            {{ 'hero-apparel-2' | placeholder_svg_tag: 'multi-section-row_image-container placeholder-svg' }}
+          {% endif %}
+        </div>
+        <div class="multi-section-row_text-container">
+          {% if block.settings.title != blank %}
+            <h2 class="multi-section-row_title">
+              {{ block.settings.title }}
+            </h2>
+          {% endif %}
+          {% if block.settings.description != blank %}
+            <div class="multi-section-row_rich-text">
+              {{ block.settings.description }}
+            </div>
+          {% endif %}
+        </div>
+        <div class="multi-section-row_link">
+          {% if block.settings.url != blank %}
+            <div
+              class="multi-section-row_link color-{{ section.settings.section-color_scheme }}"
+            >
+              {{- block.settings.link_text -}}
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    </a>
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "Multi Section",
+  "settings": [
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "Color_scheme",
+      "default": "scheme-1"
+    },
+    {
+      "type": "select",
+      "id": "block-item_content",
+      "label": "Block Item Content",
+      "options": [
+        {
+          "value": "start",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "end",
+          "label": "Right"
+        }
+      ],
+      "default": "center",
+      "info": "Align Items in Block"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "multi-section",
+      "name": "Section",
+      "limit": 5,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title",
+          "default": "Title"
+        },
+        {
+          "type": "range",
+          "id": "title_size",
+          "min": 16,
+          "max": 40,
+          "step": 1,
+          "unit": "px",
+          "label": "Title Size",
+          "default": 16
+        },
+        {
+          "type": "richtext",
+          "id": "description",
+          "label": "Description",
+          "default": "<p>Some Description text</p>"
+        },
+        {
+          "type": "text",
+          "id": "link_text",
+          "label": "Link Text",
+          "default": "Link"
+        },
+        {
+          "type": "url",
+          "id": "url",
+          "label": "Link URL",
+          "default": "/collections"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Multi Section Row",
+      "blocks": [
+        {
+          "type": "multi-section"
+        },
+        {
+          "type": "multi-section"
+        },
+        {
+          "type": "multi-section"
+        },
+        {
+          "type": "multi-section"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

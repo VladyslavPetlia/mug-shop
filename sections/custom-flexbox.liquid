@@ -1,0 +1,164 @@
+{{ 'custom-flexbox.css' | asset_url | stylesheet_tag }}
+{% style %}
+  #shopify-section-{{ section.id }} .section-flexbox {
+    /* Set a fallback color first */
+    {% if section.settings.background_color != blank %}
+      background-color: {{ section.settings.background_color }};
+    {% endif %}
+
+    /* Apply the background image properly if selected */
+    {% if section.settings.background_image != blank %}
+      background-image: url('{{ section.settings.background_image | image_url }}');
+      background-size: {{ section.settings.background_size }};
+      background-repeat: {{ section.settings.background_repeat }};
+      background-position: {{ section.settings.background_position_x }}% {{ section.settings.background_position_y }}%;
+    {% endif %}
+
+    /* Ensures the section has height even if blocks are empty */
+    min-height: 100px;
+  }
+
+  #shopify-section-{{ section.id }} .flexbox-content {
+    gap: {{ section.settings.gap }}px;
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+
+  @media (max-width: 750px) {
+    #shopify-section-{{ section.id }} .flexbox-content {
+      gap: calc({{ section.settings.gap }}px / 2);
+      padding-top: calc({{ section.settings.padding_top }}px / 2);
+      padding-bottom: calc({{ section.settings.padding_bottom }}px / 2);
+    }
+  }
+{% endstyle %}
+
+<section class="section-flexbox color-{{ section.settings.color_scheme }}">
+  <div class="flexbox-content {% unless section.settings.fullwidth == true %} page-width{% endunless %}">
+    {% content_for 'blocks' %}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Section Flexbox",
+  "class": "section-flexbox",
+  "blocks": [{ "type": "wrapper" }, { "type": "hr" }],
+  "settings": [
+    {
+      "type": "header",
+      "content": "Styles"
+    },
+    {
+      "type": "color_scheme",
+      "id": "color_scheme",
+      "label": "t:sections.all.colors.label",
+      "default": "scheme-1"
+    },
+    {
+      "type": "color_background",
+      "id": "background_color",
+      "label": "Background color"
+    },
+    {
+      "type": "image_picker",
+      "id": "background_image",
+      "label": "Background image"
+    },
+    {
+      "type": "select",
+      "id": "background_size",
+      "label": "Background size",
+      "options": [
+        { "label": "auto", "value": "auto" },
+        { "label": "contain", "value": "contain" },
+        { "label": "cover", "value": "cover" }
+      ],
+      "default": "cover"
+    },
+    {
+      "type": "select",
+      "id": "background_repeat",
+      "label": "Background repeat",
+      "options": [
+        { "label": "no-repeat", "value": "no-repeat" },
+        { "label": "repeat", "value": "repeat" },
+        { "label": "repeat-x", "value": "repeat-x" },
+        { "label": "repeat-y", "value": "repeat-y" }
+      ],
+      "default": "no-repeat"
+    },
+    {
+      "type": "range",
+      "id": "background_position_x",
+      "label": "Background position X",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50,
+      "unit": "%"
+    },
+    {
+      "type": "range",
+      "id": "background_position_y",
+      "label": "Background position Y",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "default": 50,
+      "unit": "%"
+    },
+    {
+      "type": "checkbox",
+      "id": "fullwidth",
+      "label": "Full width",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "gap",
+      "label": "Gap",
+      "min": 0,
+      "max": 100,
+      "step": 1,
+      "unit": "px",
+      "default": 50
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding top",
+      "min": 0,
+      "max": 800,
+      "step": 10,
+      "default": 50,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding bottom",
+      "min": 0,
+      "max": 800,
+      "step": 10,
+      "default": 50,
+      "unit": "px"
+    },
+    {
+      "type": "header",
+      "content": "Custom CSS"
+    },
+    {
+      "type": "text",
+      "id": "css_id",
+      "label": "CSS ID"
+    },
+    {
+      "type": "text",
+      "id": "css_class",
+      "label": "CSS Classes"
+    }
+  ],
+  "presets": [{ "name": "Section Flexbox" }]
+}
+{% endschema %}

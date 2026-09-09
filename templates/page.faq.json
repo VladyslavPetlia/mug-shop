@@ -1,0 +1,135 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "faq_h8cCtd": {
+      "type": "faq",
+      "blocks": {
+        "faq_item_HRxha6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Where do you ship?",
+            "answer": "<p>We ship worldwide! Standard shipping rates apply at checkout based on your location.</p>"
+          }
+        },
+        "faq_item_9fXaaU": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How long will it take to get my mug?",
+            "answer": "<p>Orders typically process within <strong>1–3 business days</strong>. Domestic shipping takes <strong>3–5 business days</strong>, while international shipping takes <strong>7–21 business days</strong>.</p>"
+          }
+        },
+        "faq_item_xptKjJ": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Will my mug break in transit?",
+            "answer": "<p>We pack our mugs in custom-engineered, eco-friendly boxes. If your mug does arrive broken, email us a photo at <strong>[Email Address]</strong> within <strong>48 hours</strong>, and we will send a free replacement.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_HRxha6",
+        "faq_item_9fXaaU",
+        "faq_item_xptKjJ"
+      ],
+      "name": "FAQ",
+      "settings": {
+        "heading": "Shipping & Delivery",
+        "two_columns": false,
+        "padding_top": 0,
+        "padding_bottom": 60,
+        "section-color_scheme": ""
+      }
+    },
+    "faq_MUeMNB": {
+      "type": "faq",
+      "blocks": {
+        "faq_item_f3dEzB": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Are your mugs microwave and dishwasher safe?",
+            "answer": "<p>Most of our mugs are fully microwave and dishwasher safe. If a specific design features metallic gold accents or delicate hand-painted glaze, we will clearly note <strong>\"Hand Wash Only\"</strong> on the product page.</p>"
+          }
+        },
+        "faq_item_jJFQAL": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What materials do you use?",
+            "answer": "<p>Our mugs are crafted from high-quality, lead-free ceramic and stoneware. They are completely food-safe and built to last.</p>"
+          }
+        },
+        "faq_item_qPbtR6": {
+          "type": "faq_item",
+          "settings": {
+            "question": "How big are the mugs?",
+            "answer": "<p>Our standard mugs hold <strong>11 oz to 15 oz</strong> of your favorite drink. Check the specific dimensions listed on each product page.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_f3dEzB",
+        "faq_item_jJFQAL",
+        "faq_item_qPbtR6"
+      ],
+      "name": "FAQ",
+      "settings": {
+        "heading": "Care & Product Details",
+        "two_columns": false,
+        "padding_top": 0,
+        "padding_bottom": 60,
+        "section-color_scheme": ""
+      }
+    },
+    "faq_gQqiF8": {
+      "type": "faq",
+      "blocks": {
+        "faq_item_PaAQmg": {
+          "type": "faq_item",
+          "settings": {
+            "question": "What is your return policy?",
+            "answer": "<p>We offer a <strong>30-day return window</strong> for unused mugs in their original packaging.</p>"
+          }
+        },
+        "faq_item_t3EQ6f": {
+          "type": "faq_item",
+          "settings": {
+            "question": "Who pays for return shipping?",
+            "answer": "<p>Customers are responsible for return shipping costs unless the item arrived damaged or defective.</p>"
+          }
+        }
+      },
+      "block_order": [
+        "faq_item_PaAQmg",
+        "faq_item_t3EQ6f"
+      ],
+      "name": "FAQ",
+      "settings": {
+        "heading": "Returns & Exchanges",
+        "two_columns": false,
+        "padding_top": 0,
+        "padding_bottom": 60,
+        "section-color_scheme": ""
+      }
+    }
+  },
+  "order": [
+    "main",
+    "faq_h8cCtd",
+    "faq_MUeMNB",
+    "faq_gQqiF8"
+  ]
+}

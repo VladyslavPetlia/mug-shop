@@ -1,0 +1,77 @@
+.underlined-link,
+.inline-richtext a {
+  text-decoration: none;
+  border-bottom: none;
+}
+
+.header__menu-item span {
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.header__menu-item:hover span {
+  text-decoration: none;
+  background-color: #a3958d;
+  color: #f4efeb;
+}
+
+.header__active-menu-item {
+  text-decoration: none;
+  background-color: #a3958d;
+  color: #f4efeb;
+}
+
+footer.footer a,
+footer.footer a *,
+.footer-block__details-content a,
+.footer-block__details-content a * {
+  text-decoration: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+}
+
+.footer-block__details-content a {
+  padding: 0;
+  padding: 0 5px 0 5px;
+  border-radius: 5px;
+}
+
+.footer-block__details-content a.link:hover,
+.footer-block__details-content li .list-menu__item--active {
+  background-color: #a3958d;
+  color: #f4efeb;
+}
+
+/* 2. Target Product Page Share Button */
+.product .share-button__button,
+.product .share-button__button:hover,
+.product .share-button__button span,
+.product share-button details summary,
+.product share-button details summary:hover {
+  text-decoration: none;
+  border-bottom: none;
+}
+
+/* 3. Deep target Card Page and Cart Drawer titles */
+.card-wrapper:hover .card-information__text,
+.card__heading a:hover,
+.card__information .full-unstyled-link:hover {
+  text-decoration: none;
+}
+
+/* 4. Remove underline from cart items and checkout links */
+.cart-items a:hover,
+.cart-item__name:hover,
+.cart-drawer a:hover,
+.cart-notification a:hover {
+  text-decoration: none;
+}
+
+/* 5. Structural Dawn-wide cleanup */
+.underlined-link,
+.link,
+a.link,
+.full-unstyled-link:hover {
+  text-decoration: none;
+  border-bottom: none;
+}

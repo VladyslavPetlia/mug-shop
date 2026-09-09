@@ -1,0 +1,136 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "hero_banner_qBpKN8": {
+      "type": "hero-banner",
+      "name": "Hero Banner",
+      "settings": {
+        "margin-top": 0,
+        "margin-bottom": 100,
+        "layout": "full",
+        "height": "large",
+        "content_alignment": "left",
+        "vertical_alignment": "bottom",
+        "image": "shopify://shop_images/amin-hasani-kiIFSiBHKQw-unsplash.avif",
+        "enable_video_looping": true,
+        "overlay_color": "#000000",
+        "overlay_opacity": 40,
+        "section-color_scheme": "",
+        "subheading": "mug shop",
+        "heading": "<p><em><strong>Our Story</strong></em></p>",
+        "heading_tag": "h2",
+        "body": "<p>We started <strong>Mug Shop</strong> in 2026 out of a simple love for comfort. We noticed how a plain cup is just an object, but your favorite mug becomes part of your daily routine. It is there for quiet early mornings, late-night study sessions, and every deep breath in between. We wanted to create mugs that do not just hold your coffee or tea—they make the experience better.</p>",
+        "countdown_date": "",
+        "button_label": "",
+        "button_link": "/collections/all",
+        "button_style": "primary",
+        "button_label_2": "",
+        "button_link_2": "",
+        "button_style_2": "outline"
+      }
+    },
+    "multirow_WA9m7C": {
+      "type": "multirow",
+      "blocks": {
+        "row_xQnQ3E": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/stephanie-sarlos-i-a6Nnj-0uo-unsplash.avif",
+            "caption": "Mug Shop",
+            "heading": "Held in Your Hands, Crafted for Your Day",
+            "text": "<p>At <strong>Mug Shop</strong>, we believe that the best moments in life start with a warm drink and a mug that feels just right.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        },
+        "row_3rxYQg": {
+          "type": "row",
+          "settings": {
+            "image": "shopify://shop_images/pexels-rdne-7309213.avif",
+            "caption": "Mug Shop",
+            "heading": "Our Promise",
+            "text": "<p>We care about our impact, too. All our mugs are sustainably packaged in plastic-free, recycled materials, ensuring your cozy moment doesn't cost the earth.</p>",
+            "button_label": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "row_xQnQ3E",
+        "row_3rxYQg"
+      ],
+      "name": "t:sections.multirow.presets.name",
+      "settings": {
+        "image_height": "medium",
+        "desktop_image_width": "medium",
+        "image_layout": "alternate-left",
+        "heading_size": "h1",
+        "text_style": "body",
+        "button_style": "secondary",
+        "desktop_content_position": "middle",
+        "desktop_content_alignment": "left",
+        "mobile_content_alignment": "left",
+        "section_color_scheme": "",
+        "row_color_scheme": "",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "banners_text_space_VfMWpE": {
+      "type": "banners-text-space",
+      "blocks": {
+        "banner_text_space_FMpGXA": {
+          "type": "banner-text-space",
+          "settings": {
+            "banner_image": "shopify://shop_images/without-text.avif",
+            "heading": "Ergonomic Design",
+            "description": "<p>Handles that fit your fingers naturally, not awkwardly.</p>",
+            "button_label": "",
+            "button_url": ""
+          }
+        },
+        "banner_text_space_L9FDDr": {
+          "type": "banner-text-space",
+          "settings": {
+            "banner_image": "shopify://shop_images/kelly-brito-tgBjCw7e-64-unsplash.avif",
+            "heading": "Thoughtful Materials",
+            "description": "<p>High-quality, durable ceramic that keeps your drink warm longer.</p>",
+            "button_label": "",
+            "button_url": ""
+          }
+        }
+      },
+      "block_order": [
+        "banner_text_space_FMpGXA",
+        "banner_text_space_L9FDDr"
+      ],
+      "name": "Banners-text-space",
+      "settings": {
+        "section_title": "",
+        "color_scheme": "scheme-3",
+        "overlay_opacity": 30
+      }
+    }
+  },
+  "order": [
+    "main",
+    "hero_banner_qBpKN8",
+    "multirow_WA9m7C",
+    "banners_text_space_VfMWpE"
+  ]
+}
